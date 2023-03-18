@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('expire')->default('0')->comment('active=0 && expire=1');
+
             $table->string('email')->unique();
             $table->text('mobile')->unique();
             $table->timestamp('email_verified_at')->nullable();
